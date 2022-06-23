@@ -2,16 +2,13 @@ const canvas = document.getElementById("scenario")
 const ctx = canvas.getContext("2d")
 
 let characterKike = new Image()
-    characterKike.src = "../img/kike.png"
-
-let characterDonaPink = new Image()
-    characterDonaPink.src ="../img/donas.png"
+    characterKike.src = "img/kike.png"
 
 let characterDonaBlue = new Image()
-    characterDonaBlue.src ="../img/donaazul.png"
+    characterDonaBlue.src ="img/donaazul.png"
 
 let insulineImage = new Image()
-    insulineImage.src ="../img/jeringa.png"
+    insulineImage.src ="img/jeringa.png"
 
 const carbs = []
 const shoots = []
@@ -83,8 +80,7 @@ function showData(health, total){
 function creatCarbs(){
     
  const random = Math.floor(Math.random() * 400)
-    if (random % 50 === 0){ 
-       // let donaPink = new Dona (220, 200, ctx, characterDonaPink)
+    if (random % 50 === 0){
         let donaBlue = new Dona (650, 300, ctx, characterDonaBlue)
     carbs.push(donaBlue)
         console.log(carbs)
@@ -111,7 +107,7 @@ function movements(){
             console.log(shoots)
                 if (shoots.length < 50) {
                     console.log("disparos")
-                    const insuline = kike.shoot(kike.x + 50, kike.y + 35, insulineImage)
+                    const insuline = kike.shoot(kike.x + 60, kike.y + 35, insulineImage)
                 shoots.push(insuline)
                 }
                 break;   
