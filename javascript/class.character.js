@@ -39,7 +39,6 @@ class Character {
     }
 
     drawYourself() {
-        //this.ctx.fillRect(this.x, this.y, 30, 30)
         this.ctx.drawImage(this.img, this.x, this.y, 80, 80)
     }
 } 

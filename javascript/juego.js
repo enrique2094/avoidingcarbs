@@ -13,7 +13,7 @@ let insulineImage = new Image()
 const carbs = []
 const shoots = []
 
-let kike = new Kike (10, 300, ctx, characterKike)
+let kike = new Kike (30, 300, ctx, characterKike)
 
 function empezarJuego(){
 
@@ -32,8 +32,7 @@ function empezarJuego(){
 function updateScenario(){
 
         ctx.clearRect(0, 0, 700, 400)
-    console.log("actualiza")
-    if (carbs.length < 5){
+    if (carbs.length < 6){
         creatCarbs()
     }
 
@@ -44,9 +43,9 @@ function updateScenario(){
           dona.x -= 2
           dona.drawYourself()
 
-          if (kike.x + 80 >= dona.x){
+          if (kike.x + 100 >= dona.x){
              carbs.splice(index, 1) 
-             kike.receiveDamage(20)
+             kike.receiveDamage(5)
                 if (kike.health <= 0){
                alert("HIGH SUGAR LEVEL, GAME OVER!")     
                 }
@@ -56,7 +55,6 @@ function updateScenario(){
     shoots.forEach((shoot, indexShoot) => {
         shoot.x += 2 
         shoot.drawYourself()
-        console.log("me dibujo")
 
     carbs.forEach((carb, indexCarb) => {
         if(carb.x === shoot.x || carb.x === shoot.x + 1 || carb.x === carb.x -1){
@@ -83,14 +81,12 @@ function creatCarbs(){
     if (random % 50 === 0){
         let donaBlue = new Dona (650, 300, ctx, characterDonaBlue)
     carbs.push(donaBlue)
-        console.log(carbs)
     }
 }
 
 function movements(){
 
     document.addEventListener("keydown", (event) => {
-        console.log(event.key)
         switch(event.key) {
             case "ArrowRight":
                 kike.moveToTheFront()
@@ -104,9 +100,7 @@ function movements(){
                 kike.getDown()
                 break;
             case " ": 
-            console.log(shoots)
                 if (shoots.length < 50) {
-                    console.log("disparos")
                     const insuline = kike.shoot(kike.x + 60, kike.y + 35, insulineImage)
                 shoots.push(insuline)
                 }

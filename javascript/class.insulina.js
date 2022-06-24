@@ -8,6 +8,5 @@ class Insuline {
 }
     drawYourself(){
     this.ctx.drawImage(this.img, this.x, this.y, 55, 55)
-    console.log("dibujandoooo")
 }
 }
